@@ -49,7 +49,7 @@
                 }
             }
             // 获取最外层盒子
-            this.canvasCodeDom = document.querySelector("#canvasCodeDom")
+            this.canvasCodeDom = document.querySelector("#my-captcha")
             // 创建滑动验证码外层盒子
             this.imgBox = document.createElement("div")
             this.imgBox.className = "canvas-wrapper"

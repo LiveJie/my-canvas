@@ -1,8 +1,8 @@
-#canvasCodeDom .canvas-wrapper {
+#my-captcha .canvas-wrapper {
     position: relative;
     margin: 0 auto;
 }
-#canvasCodeDom .canvas-wrapper .refresh{
+#my-captcha .canvas-wrapper .refresh{
     position: absolute;
     width: 20px;
     height: 20px;
@@ -10,11 +10,11 @@
     right: 10px;
     cursor: pointer;
 }
-#canvasCodeDom .canvas-wrapper .refresh svg{
+#my-captcha .canvas-wrapper .refresh svg{
     width: 20px;
     height: 20px;
 }
-#canvasCodeDom .swiper-canvas {
+#my-captcha .swiper-canvas {
     position: absolute;
     left: 0;
     top: 0;
@@ -22,7 +22,7 @@
     cursor: grab;
     
 }
-#canvasCodeDom .swiper-wrapper {
+#my-captcha .swiper-wrapper {
     height: 40px;
     line-height: 40px;
     border: 1px solid #ddd;
@@ -33,7 +33,7 @@
     box-sizing: border-box;
     user-select: none;
 }
-#canvasCodeDom .swiper-wrapper .swiper-box {
+#my-captcha .swiper-wrapper .swiper-box {
     width: 38px;
     height: 38px;
     position: absolute;
@@ -43,18 +43,18 @@
     /* border: 1px solid #ddd; */
     box-sizing: border-box;
 }
-#canvasCodeDom .swiper-wrapper .active {
+#my-captcha .swiper-wrapper .active {
     background: #9fd6e8;
 }
-#canvasCodeDom .swiper-wrapper .active .swiper{
+#my-captcha .swiper-wrapper .active .swiper{
     background: #77d7f6;
 }
-#canvasCodeDom .swiper-wrapper .active .swiper path{
+#my-captcha .swiper-wrapper .active .swiper path{
     fill: #fff;
 }
 
 
-#canvasCodeDom .swiper-wrapper .swiper {
+#my-captcha .swiper-wrapper .swiper {
     position: absolute;
     top: -1px;
     right: 0;
@@ -68,33 +68,33 @@
     align-items: center;
     cursor: pointer;
 }
-#canvasCodeDom .swiper-wrapper .swiper svg{
+#my-captcha .swiper-wrapper .swiper svg{
     width: 20px;
     height: 20px;
 }
-#canvasCodeDom .success {
+#my-captcha .success {
     background: #D2F4EF !important;
     color: #fff;
     /* border: 1px solid #52CCBA; */
 }
-#canvasCodeDom .success .swiper {
+#my-captcha .success .swiper {
     background: #52CCBA !important;
     border: 1px solid #52CCBA;
     color: #fff;
 }
-#canvasCodeDom .success svg path{
+#my-captcha .success svg path{
     fill: #fff;
 }
-#canvasCodeDom .error {
+#my-captcha .error {
     background: #fce1e1 !important;
     color: #fff;
     /* border: 1px solid #f57a7a; */
 }
-#canvasCodeDom .error .swiper {
+#my-captcha .error .swiper {
     background: #f57a7a !important;
     border: 1px solid #f57a7a;
     color: #fff;
 }
-#canvasCodeDom .error svg path{
+#my-captcha .error svg path{
     fill: #fff;
 }
