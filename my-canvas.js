@@ -3,14 +3,18 @@
  * @description 图片上传插件
  * @author jie
  * @export
- * @param {*}  
+ * @param { opt }  可以传自定义参数用户可以自定义宽高背景图片等 w h imgArr
+ * @param { callBack }  滑动验证码拖拽结束后的回调事件 return true false 
  * @returns 
  */
+
 ;
 (function () {
     "use strict"
-    dynamicLoadCss("http://oss.humorjie.vip/my-canvas.css")
+    // 可更换cdn地址
+    dynamicLoadCss("./my-canvas.css")
 
+    // 动态加载css
     function dynamicLoadCss(url) {
         var head = document.getElementsByTagName('head')[0];
         var link = document.createElement('link');
@@ -38,10 +42,12 @@
                 sw: 38, // 滑块宽度
                 sX: "", // 鼠标按下X轴距离
                 sY: "", // 鼠标按下Y轴距离
+                maxDiff: 8, // 最大误差值
                 imgArr: [], // 图片数组
                 refreshLock: false, // 刷新冒泡锁
                 overflowLock: false, // 点击溢出锁
             }
+            // 合并参数
             let countParams = Object.assign(defParams, opt)
             for (var key in countParams) {
                 if (countParams.hasOwnProperty(key)) {
@@ -69,11 +75,13 @@
             this.sCanvas = null
 
             this.L = this.l + this.r * 2 + 3, // 滑块实际边长
-                this.imgBox.style.width = this.w + "px"
+            this.imgBox.style.width = this.w + "px"
             this.imgBox.style.height = this.h + "px"
             this.canvasCodeDom.appendChild(this.imgBox)
             this.imgBox.appendChild(this.refreshDom)
+            // 底部滑块盒子初始化
             this._initSwiperBox()
+            // 创建滑块
             this._createDom()
         },
         // 底部滑块盒子初始化
@@ -118,7 +126,7 @@
                 _myCanvasThis.sCanvas.width = this.L
                 sCtx.putImageData(ImageData, 0, y)
             })
-
+            // 添加事件监听
             _myCanvasThis.swiperBoxDom.addEventListener('mouseover', this._swiperBoxDomMouseOver)
             _myCanvasThis.sCanvas.addEventListener('mousedown', this._imgSwiperStart)
             _myCanvasThis.swiperDom.addEventListener('mousedown', this._imgSwiperStart)
@@ -226,7 +234,7 @@
             }
             _myCanvasThis.sX = e.clientX
             _myCanvasThis.sY = e.clientY
-            if (Math.abs(_myCanvasThis.sCanvas.style.left.split("px")[0] - (_myCanvasThis.orgX - 2)) <= 8) {
+            if (Math.abs(_myCanvasThis.sCanvas.style.left.split("px")[0] - (_myCanvasThis.orgX - 2)) <= _myCanvasThis.maxDiff) {
                 _myCanvasThis.callBack && _myCanvasThis.callBack(true)
                 _myCanvasThis.swiperBoxDom.classList.add("success")
                 _myCanvasThis.swiperDom.innerHTML = `<svg t="1597889072422" class="icon" viewBox="0 0 1397 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1994" width="200" height="200"><path d="M1396.363636 121.018182c0 0-223.418182 74.472727-484.072727 372.363636-242.036364 269.963636-297.890909 381.672727-390.981818 530.618182C512 1014.690909 372.363636 744.727273 0 549.236364l195.490909-186.181818c0 0 176.872727 121.018182 297.890909 344.436364 0 0 307.2-474.763636 902.981818-707.490909L1396.363636 121.018182 1396.363636 121.018182zM1396.363636 121.018182" p-id="1995" fill="#ffffff"></path></svg>`

@@ -7,10 +7,18 @@
     <!-- <link rel="stylesheet" href="./my-canvas.css"> -->
 </head>
 <body>
-    <div id="canvasCodeDom"></div>
+    <div id="my-captcha"></div>
     <script src="./my-canvas.js"></script>
     <script>
-            new MyCanvas();
+        let opt = {
+            w: 450,
+            h: 300,
+            maxDiff: 5
+        };
+        function cb(status) {
+            console.log(status)
+        }
+        new MyCanvas(opt, cb);
     </script>
 </body>
 </html>
